@@ -11,6 +11,8 @@ module.exports = {
 
   module: {
     rules: [
+
+      // JavaScript
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -22,12 +24,14 @@ module.exports = {
         },
       },
 
+      // TypeScript
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: 'ts-loader',
       },
 
+      // SASS
       {
         test: /\.sass$/,
         use: [
@@ -36,6 +40,7 @@ module.exports = {
           'sass-loader',
         ],
       },
+
     ],
   },
 
