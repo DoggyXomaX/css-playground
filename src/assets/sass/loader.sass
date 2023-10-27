@@ -1,0 +1,88 @@
+$loaderSize: 14px
+$loaderFunc: ease-in-out
+$loaderDuration: 0.7s
+
+.loader
+  position: relative
+  font-size: $loaderSize
+  width: 11em
+  height: 7em
+  background-color: #fdd
+  border-radius: 1em
+  margin: 1em
+
+  p
+    position: absolute
+    top: 0.5em
+    text-align: center
+    width: 100%
+
+  div
+    div
+      position: absolute
+      top: 3em
+      width: 1em
+      height: 1em
+      background-color: #fff
+      border-radius: 50% 0
+      border-top: 5px #0002 dashed
+      border-bottom: 2px #0004 dotted
+
+      &:nth-child(1)
+        left: 1em
+        animation: loader-scale $loaderDuration $loaderFunc infinite
+      &:nth-child(2)
+        left: 1em
+        z-index: 2
+        animation: loader-slide-up $loaderDuration $loaderFunc infinite
+      &:nth-child(3)
+        left: 3em
+        z-index: 3
+        animation: loader-slide $loaderDuration $loaderFunc infinite
+      &:nth-child(4)
+        left: 5em
+        z-index: 2
+        animation: loader-slide $loaderDuration $loaderFunc infinite
+      &:nth-child(5)
+        left: 7em
+        z-index: 1
+        animation: loader-slide-down $loaderDuration $loaderFunc infinite
+      &:nth-child(6)
+        left: 9em
+        animation: loader-unscale $loaderDuration $loaderFunc infinite
+
+@keyframes loader-scale
+  0%
+    background-color: #ddd
+    transform: scale(0)
+  100%
+    background-color: #eee
+    transform: scale(1)
+
+@keyframes loader-slide-up
+  0%
+    background-color: #eee
+    transform: translateX(0) scale(1)
+  100%
+    transform: translateX(2em) scale(2) rotate(-45deg)
+
+@keyframes loader-slide
+  0%
+    transform: translateX(0) scale(2) rotate(-45deg)
+  100%
+    transform: translateX(2em) scale(2) rotate(-45deg)
+
+@keyframes loader-slide-down
+  0%
+    transform: translateX(0) scale(2) rotate(-45deg)
+  100%
+    background-color: #eee
+    transform: translateX(2em) scale(1) rotate(-90deg)
+
+@keyframes loader-unscale
+  0%
+    background-color: #eee
+    transform: scale(1) rotate(-90deg)
+  100%
+    background-color: #ddd
+    transform: scale(0) rotate(-90deg)
