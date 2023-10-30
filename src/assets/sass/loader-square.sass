@@ -1,0 +1,58 @@
+$size: 14px
+$func: ease-in-out
+$duration: 3s
+$color: #fff
+
+.loader-square
+  font-size: $size
+  position: relative
+  left: -2em
+  top: -2em
+  animation: loader-square-main $duration $func infinite
+
+  &::before, &::after
+    content: ''
+    position: absolute
+
+  &::before
+    animation: loader-square-before $duration $func infinite
+
+  &::after
+    animation: loader-square-after $duration $func infinite
+
+  &, &::before, &::after
+    display: block
+    width: 1em
+    height: 1em
+    background-color: $color
+    border-radius: 0.5em
+
+@keyframes loader-square-before
+  0%, 20%, 100%
+    transform: scale(2) translateX(2em)
+    border-radius: 0 0.5em
+  25%, 45%, 75%, 95%
+    transform: scale(1.5) translateX(2em) translateY(2em)
+    border-radius: 0.5em 0
+  50%, 70%
+    transform: scale(1) translateY(2em)
+    border-radius: 0 0.5em
+
+@keyframes loader-square-main
+  0%, 20%, 100%
+    transform: scale(1)
+  25%, 45%, 75%, 95%
+    transform: scale(1.5)
+  50%, 70%
+    transform: scale(2)
+
+@keyframes loader-square-after
+  0%, 20%, 100%
+    transform: scale(2) translateX(2em) translateY(2em)
+    border-radius: 0 0.5em
+  25%, 45%, 75%, 95%
+    transform: scale(1.5) translateY(2em)
+    border-radius: 0.5em 0
+  50%, 70%
+    transform: scale(1) translateX(2em)
+    border-radius: 0 0.5em

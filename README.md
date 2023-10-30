@@ -14,3 +14,4 @@ yarn start
 - Loader (3 balls switching)
 - LoaderCircle (just circle loader)
 - LoaderDiagram (3 sticks pulsing)
+- LoaderSquare (1 circle and 2 lemons in square. Yes.)

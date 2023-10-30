@@ -3,9 +3,10 @@ import { v4 } from 'uuid';
 import { Loader } from 'playground/Loader';
 import { LoaderCircle } from 'playground/LoaderCircle';
 import { LoaderDiagram } from 'playground/LoaderDiagram';
+import { LoaderSquare } from 'playground/LoaderSquare';
 
 function Playground() {
-  const components = [Loader, LoaderCircle, LoaderDiagram];
+  const components = [Loader, LoaderCircle, LoaderDiagram, LoaderSquare];
   const uuids = components.map(() => v4());
 
   return (
