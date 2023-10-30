@@ -1,0 +1,26 @@
+$size: 14px
+$func: linear
+$duration: 1s
+$color-r: 255
+$color-g: 255
+$color-b: 255
+$opacity: 0.5
+
+.loader-circle
+  position: relative
+  font-size: $size
+  width: 5em
+  height: 5em
+  border-radius: 50%
+  border: 0.5em solid rgba($color-r, $color-g, $color-b, $opacity)
+  border-left: 0.5em solid rgb($color-r, $color-g, $color-b)
+  animation: loader-circle-anim $duration $func infinite
+
+  &.wide
+    border-left: 1em solid #fff
+
+@keyframes loader-circle-anim
+  0%
+    transform: rotate(0turn)
+  100%
+    transform: rotate(1turn)

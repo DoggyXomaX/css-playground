@@ -1,0 +1,53 @@
+$size: 14px
+$func: ease
+$duration: 1.6s
+$color: #fff
+
+.loader-diagram
+  position: relative
+  animation: loader-diagram-main $duration $func infinite
+
+  &::after
+    left: 2em
+    animation: loader-diagram-after $duration $func infinite
+
+  &::before
+    left: -2em
+    animation: loader-diagram-before $duration $func infinite
+
+  &::after, &::before
+    content: ''
+    position: absolute
+
+  &, &::after, &::before
+    display: block
+    width: 1em
+    height: 5em
+    border-radius: 0.5em
+    background-color: $color
+
+@keyframes loader-diagram-before
+  0%
+    transform: scaleY(0.5)
+  50%
+    transform: scaleY(1)
+  100%
+    transform: scaleY(0.5)
+
+@keyframes loader-diagram-main
+  0%
+    transform: scaleY(0.75)
+  25%
+    transform: scaleY(1)
+  75%
+    transform: scaleY(0.5)
+  100%
+    transform: scaleY(0.75)
+
+@keyframes loader-diagram-after
+  0%
+    transform: scaleY(1)
+  50%
+    transform: scaleY(0.5)
+  100%
+    transform: scaleY(1)
