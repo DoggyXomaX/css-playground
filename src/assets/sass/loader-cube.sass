@@ -1,0 +1,65 @@
+$size: 14px
+$func: ease-in-out
+$duration: 10s
+$color: #fff
+$perspective: 10em
+$cube-size: 5em
+
+.loader-cube
+  &, *
+    display: block
+    width: $cube-size
+    height: $cube-size
+  *
+    position: absolute
+    background-color: $color
+    border-radius: 50%
+
+    &:nth-child(1)
+      animation: rotate-3d-1 $duration $func infinite
+    &:nth-child(2)
+      animation: rotate-3d-2 $duration $func infinite
+    &:nth-child(3)
+      animation: rotate-3d-3 $duration $func infinite
+    &:nth-child(4)
+      animation: rotate-3d-4 $duration $func infinite
+    &:nth-child(5)
+      animation: rotate-3d-5 $duration $func infinite
+    &:nth-child(6)
+      animation: rotate-3d-6 $duration $func infinite
+
+@keyframes rotate-3d-1
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d(-$cube-size / 2, 0, 0) rotate3d(0, 1, 0, 90deg) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d(-$cube-size / 2, 0, 0) rotate3d(0, 1, 0, 90deg) scale(1)
+
+@keyframes rotate-3d-2
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d($cube-size / 2, 0, 0) rotate3d(0, 1, 0, 90deg) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d($cube-size / 2, 0, 0) rotate3d(0, 1, 0, 90deg) scale(1)
+
+@keyframes rotate-3d-3
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d(0, -$cube-size / 2, 0) rotate3d(1, 0, 0, 90deg) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d(0, -$cube-size / 2, 0) rotate3d(1, 0, 0, 90deg) scale(1)
+
+@keyframes rotate-3d-4
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d(0, $cube-size / 2, 0) rotate3d(1, 0, 0, 90deg) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d(0, $cube-size / 2, 0) rotate3d(1, 0, 0, 90deg) scale(1)
+
+@keyframes rotate-3d-5
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d(0, 0, -$cube-size / 2) rotate3d(1, 0, 0, 0) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d(0, 0, -$cube-size / 2) rotate3d(1, 0, 0, 0) scale(1)
+
+@keyframes rotate-3d-6
+  0%, 20%, 50%, 100%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 0) translate3d(0, 0, $cube-size / 2) rotate3d(1, 0, 0, 0) scale(0.1)
+  10%, 35%, 75%
+    transform: perspective($perspective) rotate3d(1, 0.5, 0, 1turn) translate3d(0, 0, $cube-size / 2) rotate3d(1, 0, 0, 0) scale(1)

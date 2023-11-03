@@ -4,9 +4,10 @@ import { Loader } from 'playground/Loader';
 import { LoaderCircle } from 'playground/LoaderCircle';
 import { LoaderDiagram } from 'playground/LoaderDiagram';
 import { LoaderSquare } from 'playground/LoaderSquare';
+import { LoaderCube } from 'playground/LoaderCube';
 
 function Playground() {
-  const components = [Loader, LoaderCircle, LoaderDiagram, LoaderSquare];
+  const components = [Loader, LoaderCircle, LoaderDiagram, LoaderSquare, LoaderCube];
   const uuids = components.map(() => v4());
 
   return (
