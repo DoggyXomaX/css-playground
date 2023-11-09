@@ -1,0 +1,71 @@
+$size: 48px
+$func: ease-in-out
+$duration: 3s
+$color: #fff
+
+.loader-stc 
+  position: relative
+  animation: loader-stc-square $duration $func infinite
+
+  &, &:before, &:after 
+    font-size: $size
+    display: block
+    width: 1em
+    height: 1em
+    background-color: $color
+
+  &:before, &:after 
+    content: ''
+    position: absolute
+
+  &:before 
+    border-radius: 50%
+    animation: loader-stc-circle $duration $func infinite
+
+  &:after 
+    box-sizing: border-box
+    border: 0.5em solid transparent
+    border-bottom-color: $color
+    background-color: unset
+    animation: loader-stc-triangle $duration $func infinite
+
+$f0x: 0
+$f0y: -1
+
+$f1x: 1
+$f1y: 1
+
+$f2x: -1
+$f2y: 1
+
+@function frame($x, $y)
+  @return translate($x * 100%, $y * 100%)
+
+@function antiFrame($x, $y)
+  @return translate($x * -100%, $y * -100%)
+
+@keyframes loader-stc-square
+  0%, 100% 
+    transform: frame($f0x, $f0y)
+  33% 
+    transform: frame($f1x, $f1y)
+  66% 
+    transform: frame($f2x, $f2y)
+
+@keyframes loader-stc-circle 
+  0%, 100% 
+    transform: antiFrame($f0x, $f0y) frame($f1x, $f1y)
+  33% 
+    transform: antiFrame($f1x, $f1y) frame($f2x, $f2y)
+  66% 
+    transform: antiFrame($f2x, $f2y) frame($f0x, $f0y)
+
+$triangle-compensation: translateY(-50%) scaleY(2)
+@keyframes loader-stc-triangle 
+  0%, 100% 
+    transform: antiFrame($f0x, $f0y) frame($f2x, $f2y) $triangle-compensation
+  33% 
+    transform: antiFrame($f1x, $f1y) frame($f0x, $f0y) $triangle-compensation
+  66% 
+    transform: antiFrame($f2x, $f2y) frame($f1x, $f1y) $triangle-compensation
+  
